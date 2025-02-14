@@ -1,0 +1,13 @@
+run = "uvicorn backend.main:app --host 0.0.0.0 --port 8080 --reload"
+modules = ["python-3.11"]
+[nix]
+channel = "stable-24_05"
+
+run = "uvicorn backend.main:app --host 0.0.0.0 --port 8080 --reload"
+
+[deployment]
+run = ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port 8080 --reload"]
+
+[[ports]]
+localPort = 8080
+externalPort = 80
